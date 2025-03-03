@@ -11,7 +11,7 @@ const MainLyout = () => {
         <NavDesktop />
         <div className="w-5/6">
           <HeaderBar />
-          <main>
+          <main className="px-8 py-6">
             <Outlet />
           </main>
         </div>
