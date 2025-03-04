@@ -1,5 +1,6 @@
 import { Iendereco } from "@/interfaces/endereco";
 import { ColumnDef } from "@tanstack/react-table";
+import DropdownAcoes from "@/components/dropdown/dropdownAcoes";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -26,6 +27,11 @@ export const columns: ColumnDef<Iendereco>[] = [
   {
     accessorKey: "complemento",
     header: "Complemento",
+    cell: (props) => {
+      const complemento = props.row.original.complemento;
+
+      return complemento ? complemento : "Não informado";
+    },
   },
   {
     accessorKey: "cidade",
@@ -38,5 +44,10 @@ export const columns: ColumnDef<Iendereco>[] = [
   {
     accessorKey: "Ações",
     header: "Ações",
+    cell: (props) => {
+      const endereco = props.row.original;
+
+      return <DropdownAcoes endereco={endereco} />;
+    },
   },
 ];

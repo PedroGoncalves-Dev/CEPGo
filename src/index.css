@@ -20,7 +20,7 @@ html,
 body {
   min-height: 100vh;
   width: 100%;
-  background-color: oklch(0.968 0.007 247.896);
+  background-color: oklch(0.968 0.007 247.896); /*slate-100*/
 }
 body {
   font-family: "Roboto", serif;
@@ -31,10 +31,8 @@ body {
 
 @layer base {
   :root {
-    --azul-primary: #002c55;
-    --azul-secondary: #3b82f6;
-    --azul-tertiary: #2563eb;
-    --azul-quaternary: #1d4ed8;
+    --azul-primary: #002446;
+    --cinza-primary: #454c5d;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;

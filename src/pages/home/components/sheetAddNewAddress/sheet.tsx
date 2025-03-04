@@ -44,6 +44,8 @@ const SheetAddNewAdress = ({
     queryFn: () => getViaCep(cepDigitado),
     enabled: cepDigitado.length === 9,
     retry: false,
+    staleTime: 1000 * 60 * 60, //cache de 1 hora para req já feitas
+    refetchOnMount: false,
   });
 
   useEffect(() => {
@@ -54,9 +56,22 @@ const SheetAddNewAdress = ({
       form.setValue("cidade", data.localidade);
       form.setValue("uf", data.uf);
     }
-  }, [isSuccess, data]);
 
-  const inputRef = useMask({ mask: "_____-___", replacement: "_" });
+    if (isError) {
+      form.setValue("logradouro", "");
+      form.setValue("bairro", "");
+      form.setValue("complemento", "");
+      form.setValue("cidade", "");
+      form.setValue("uf", "");
+    }
+  }, [isSuccess, data, isError]);
+
+  const handleCloseSheet = () => {
+    setIsSheetOpen(false);
+    form.reset();
+  };
+
+  const inputRef = useMask({ mask: "_____-___", replacement: { _: /\d/ } });
   return (
     <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
       <SheetTrigger asChild>
@@ -80,13 +95,19 @@ const SheetAddNewAdress = ({
               name="cep"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>CEP:</FormLabel>
+                  <FormLabel className={`${isError ? "text-destructive" : ""}`}>
+                    CEP:
+                  </FormLabel>
                   <FormControl>
                     <Input {...field} ref={inputRef} />
                   </FormControl>
 
-                  {isError && <span>Cep inválido</span>}
-                  <FormMessage />
+                  {isError && (
+                    <span className="text-xs font-medium text-destructive opacity-55">
+                      Cep inválido
+                    </span>
+                  )}
+                  <FormMessage className="opacity-55" />
                 </FormItem>
               )}
             />
@@ -101,11 +122,11 @@ const SheetAddNewAdress = ({
                     <Input
                       {...field}
                       type="text"
-                      placeholder="Digite o cep"
+                      // placeholder="Digite o cep"
                       disabled
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="opacity-55" />
                 </FormItem>
               )}
             />
@@ -120,7 +141,7 @@ const SheetAddNewAdress = ({
                     <Input
                       {...field}
                       type="text"
-                      placeholder="Digite o cep"
+                      // placeholder="Digite o cep"
                       disabled
                     />
                   </FormControl>
@@ -139,7 +160,7 @@ const SheetAddNewAdress = ({
                     <Input
                       {...field}
                       type="text"
-                      placeholder="Digite o cep"
+                      // placeholder="Digite o cep"
                       disabled
                     />
                   </FormControl>
@@ -158,7 +179,7 @@ const SheetAddNewAdress = ({
                     <Input
                       {...field}
                       type="text"
-                      placeholder="Digite o cep"
+                      // placeholder="Digite o cep"
                       disabled
                     />
                   </FormControl>
@@ -177,7 +198,7 @@ const SheetAddNewAdress = ({
                     <Input
                       {...field}
                       type="text"
-                      placeholder="Digite o cep"
+                      // placeholder="Digite o cep"
                       disabled
                     />
                   </FormControl>
@@ -188,6 +209,15 @@ const SheetAddNewAdress = ({
 
             <Button type="submit" className="!mt-10 w-full">
               Salvar
+            </Button>
+
+            <Button
+              type="button"
+              variant={"secondary"}
+              className="w-full"
+              onClick={handleCloseSheet}
+            >
+              Cancelar
             </Button>
           </form>
         </Form>
