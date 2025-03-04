@@ -32,3 +32,31 @@ Siga os passos abaixo para configurar e rodar o projeto localmente:
 1. **Clone o repositório**:
    ```sh
    git clone https://github.com/seu-usuario/seu-repositorio.git
+
+2. **Acesse o diretório do projeto:**:
+   ```sh
+   cd CEPgo
+
+3. **Abra o Visual Studio Code e utilize o terminal integrado**:
+   (atalho: Ctrl + ` no Windows/Linux ou Cmd + ` no macOS).
+ 
+
+4. **Instale as dependências:**;
+   ```sh
+   npm install
+
+5. **Execute o projeto:**;
+   ```sh
+   npm run dev
+Após a execução do comando npm run dev, o navegador será aberto automaticamente com o projeto rodando.
+
+🤔 Decisões Técnicas
+As tecnologias adotadas foram escolhidas para proporcionar um desenvolvimento moderno, eficiente e escalável. Destacamos:
+
+Vite: Pela velocidade e simplicidade na configuração.
+TypeScript: Para garantir maior robustez e segurança no código.
+Tailwind CSS: Para facilitar e agilizar a estilização.
+TanStack Query: Para otimizar o gerenciamento de requisições assíncronas.
+React Hook Form e Zod: Para simplificar a manipulação e validação de formulários.
+
+
