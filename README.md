@@ -3,7 +3,7 @@
 
 ## 📖 Descrição
 
-Objetico principal e cadastar endereços apenas por meio do CEP digitado, o usuario pode cadastar o mesmo endereço quantas vezes quiser, só que cada endereço tera o seu proprio id
+Objetivo principal é cadastar endereços apenas por meio do CEP digitado, o usuário pode cadastar o mesmo endereço quantas vezes quiser, só que cada endereço tera o seu próprio ID.
 
 ## 🛠 Tecnologias Utilizadas
 
