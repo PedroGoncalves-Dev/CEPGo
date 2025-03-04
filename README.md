@@ -48,15 +48,16 @@ Siga os passos abaixo para configurar e rodar o projeto localmente:
 5. **Execute o projeto:**;
    ```sh
    npm run dev
-Após a execução do comando npm run dev, o navegador será aberto automaticamente com o projeto rodando.
+Após a execução do comando `npm run dev`, o navegador será aberto automaticamente com o projeto rodando.
 
-🤔 Decisões Técnicas
+## 🤔 Decisões Técnicas
+
 As tecnologias adotadas foram escolhidas para proporcionar um desenvolvimento moderno, eficiente e escalável. Destacamos:
 
-Vite: Pela velocidade e simplicidade na configuração.
-TypeScript: Para garantir maior robustez e segurança no código.
-Tailwind CSS: Para facilitar e agilizar a estilização.
-TanStack Query: Para otimizar o gerenciamento de requisições assíncronas.
-React Hook Form e Zod: Para simplificar a manipulação e validação de formulários.
+- **Vite**: Pela velocidade e simplicidade na configuração.
+- **TypeScript**: Para garantir maior robustez e segurança no código.
+- **Tailwind CSS**: Para facilitar e agilizar a estilização.
+- **TanStack Query**: Para otimizar o gerenciamento de requisições assíncronas.
+- **React Hook Form e Zod**: Para simplificar a manipulação e validação de formulários.
 
 
