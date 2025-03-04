@@ -1,54 +1,75 @@
-# React + TypeScript + Vite
+CEPGo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Descrição
 
-Currently, two official plugins are available:
+Objetico principal e cadastar endereços apenas por meio do CEP digitado, o usuario pode cadastar o mesmo endereço quantas vezes quiser, só que cada endereço tera o seu proprio id
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+Foram escolhidas as seguintes tecnologias para este projeto:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+React 19: Biblioteca para construção de interfaces reativas e performáticas.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Vite: Ferramenta de build extremamente rápida e otimizada para desenvolvimento com React.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+TypeScript: Superset do JavaScript que adiciona tipagem estática, melhorando a manutenção e segurança do código.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Tailwind CSS: Framework de estilização utilitário que agiliza o desenvolvimento com classes predefinidas.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Node.js (>= v18): Ambiente de execução para JavaScript no backend.
+
+Axios: Cliente HTTP para realizar requisições de forma simplificada e eficiente.
+
+TanStack Query (React Query): Gerenciamento de estado assíncrono para otimizar requisições e cache de dados.
+
+React Router DOM: Biblioteca para roteamento e navegação em aplicações React.
+
+React Hook Form: Gerenciamento de formulários de maneira performática e descomplicada.
+
+Zod: Biblioteca para validação de esquemas de dados integrada ao React Hook Form.
+
+UUID: Geração de identificadores únicos para objetos.
+
+Shadcn UI: Biblioteca de componentes prontos e altamente customizáveis para React.
+
+Requisitos
+
+Node.js: Versão 18 ou superior
+
+Editor de Código: Recomendamos o uso do Visual Studio Code
+
+Instruções de Instalação e Execução
+
+Siga os passos abaixo para configurar e rodar o projeto localmente:
+
+Clone o repositório
+
+git clone https://github.com/seu-usuario/seu-repositorio.git
+
+Acesse o diretório do projeto
+
+cd seu-repositorio
+
+Abra o Visual Studio Code e o terminal integrado (Ctrl + `  no Windows/Linux ou Cmd + `  no macOS).
+
+Instale as dependências
+
+npm install
+
+Execute o projeto
+
+npm run dev
+
+Após a execução do comando npm run dev, o navegador será aberto automaticamente com o projeto rodando.
+
+Decisões Técnicas
+
+As tecnologias escolhidas proporcionam um desenvolvimento moderno, eficiente e escalável. Optamos por Vite pela sua velocidade e simplicidade na configuração, TypeScript para garantir maior robustez no código, Tailwind CSS para facilitar a estilização e TanStack Query para otimizar o gerenciamento de requisições assíncronas. Além disso, utilizamos React Hook Form e Zod para simplificar a manipulação e validação de formulários.
+
+Contribuição
+
+Fique à vontade para abrir issues e enviar pull requests! Qualquer sugestão ou melhoria será bem-vinda.
+
+Licença
+
+Este projeto está sob a licença MIT. Para mais informações, consulte o arquivo LICENSE.
