@@ -31,7 +31,7 @@ interface IpropsSheet {
   setIsSheetOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SheetAddNewAdress = ({
+const SheetAddNovoEndereco = ({
   form,
   onSubmit,
   isSheetOpen,
@@ -226,4 +226,4 @@ const SheetAddNewAdress = ({
   );
 };
 
-export default SheetAddNewAdress;
+export default SheetAddNovoEndereco;

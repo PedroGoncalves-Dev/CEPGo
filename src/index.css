@@ -19,7 +19,7 @@
 html,
 body {
   min-height: 100vh;
-  min-width: 400px;
+  min-width: 360px;
   width: 100%;
   background-color: oklch(0.968 0.007 247.896); /*slate-100*/
 }

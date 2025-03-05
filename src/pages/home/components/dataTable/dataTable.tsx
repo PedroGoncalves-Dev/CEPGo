@@ -47,29 +47,33 @@ export function DataTable<TData, TValue>({
   });
 
   const NumerosPaginas = (): JSX.Element => {
-    const currentPage = table.getState().pagination.pageIndex;
-    const totalPages = table.getPageCount();
-    const pageOptions = table.getPageOptions();
+    const paginaAtual = table.getState().pagination.pageIndex;
+    const totalPaginas = table.getPageCount();
+    const paginaOpcoes = table.getPageOptions();
 
-    let pagesToShow = [];
+    let paginaParaMostrar = [];
 
-    if (totalPages <= 3) {
-      pagesToShow = pageOptions;
-    } else if (currentPage <= 1) {
-      pagesToShow = [0, 1, 2];
-    } else if (currentPage >= totalPages - 2) {
-      pagesToShow = [totalPages - 3, totalPages - 2, totalPages - 1];
+    if (totalPaginas <= 3) {
+      paginaParaMostrar = paginaOpcoes;
+    } else if (paginaAtual <= 1) {
+      paginaParaMostrar = [0, 1, 2];
+    } else if (paginaAtual >= totalPaginas - 2) {
+      paginaParaMostrar = [
+        totalPaginas - 3,
+        totalPaginas - 2,
+        totalPaginas - 1,
+      ];
     } else {
-      pagesToShow = [currentPage - 1, currentPage, currentPage + 1];
+      paginaParaMostrar = [paginaAtual - 1, paginaAtual, paginaAtual + 1];
     }
 
     return (
       <>
-        {pagesToShow.map((page) => (
+        {paginaParaMostrar.map((page) => (
           <PaginationItem key={page}>
             <PaginationLink
               onClick={() => table.setPageIndex(page)}
-              isActive={currentPage === page}
+              isActive={paginaAtual === page}
             >
               {page + 1}
             </PaginationLink>
@@ -151,7 +155,7 @@ export function DataTable<TData, TValue>({
             >
               {" "}
               <ChevronLeft />
-              Anterior
+              <span className="hidden sm:inline">Anterior</span>
             </Button>
           </PaginationItem>
 
@@ -165,7 +169,7 @@ export function DataTable<TData, TValue>({
               className="border-0 shadow-none"
               size={"sm"}
             >
-              Próxima
+              <span className="hidden sm:inline">Próxima</span>
               <ChevronRight />
             </Button>
           </PaginationItem>

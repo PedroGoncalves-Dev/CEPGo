@@ -4,14 +4,14 @@ import { createContext, useState } from "react";
 export interface IenderecoContext {
   enderecos: Iendereco[];
   setEnderecos: React.Dispatch<React.SetStateAction<Iendereco[]>>;
-  saveEnderecos: (data: Iendereco) => void;
+  salvarEnderecos: (data: Iendereco) => void;
   deleteEndereco: (id: string) => void;
 }
 
 export const EnderecoContext = createContext<IenderecoContext>({
   enderecos: [],
   setEnderecos: () => {},
-  saveEnderecos: () => {},
+  salvarEnderecos: () => {},
   deleteEndereco: () => {},
 });
 
@@ -32,7 +32,7 @@ export const EnderecoProvider = ({
 }) => {
   const [enderecos, setEnderecos] = useState<Iendereco[]>(getEnderecos());
 
-  const saveEnderecos = (data: Iendereco) => {
+  const salvarEnderecos = (data: Iendereco) => {
     const newEnderecos = [...enderecos, data];
 
     setEnderecos(newEnderecos);
@@ -51,7 +51,7 @@ export const EnderecoProvider = ({
 
   return (
     <EnderecoContext.Provider
-      value={{ enderecos, setEnderecos, saveEnderecos, deleteEndereco }}
+      value={{ enderecos, setEnderecos, salvarEnderecos, deleteEndereco }}
     >
       {children}
     </EnderecoContext.Provider>

@@ -2,7 +2,6 @@ import { Input } from "@/components/ui/input";
 import { DataTable } from "./components/dataTable/dataTable";
 import { columns } from "./components/dataTable/columns";
 import { Iendereco } from "@/interfaces/endereco";
-import SheetAddNewAdress from "./components/sheetAddNewAddress/sheet";
 import { useForm } from "react-hook-form";
 import { schemaCep, TypeSchemaCep } from "@/schema/schemaCep";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,11 +10,12 @@ import { useEnderecoContext } from "@/hooks/useEnderecoContext";
 import { toast } from "sonner";
 import { v4 as uuidv4 } from "uuid";
 import { Search } from "lucide-react";
+import SheetAddNovoEndereco from "./components/sheetAddNovoEndereco/sheet";
 
 const Home = () => {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
-  const [searchEndereco, setSearchEndereco] = useState("");
-  const { enderecos, saveEnderecos } = useEnderecoContext();
+  const [pesquisaEndereco, setPesquisaEndereco] = useState("");
+  const { enderecos, salvarEnderecos } = useEnderecoContext();
 
   //segunda forma de armazenar os endereços em um array como exemplo
   const [enderecosSegundoMetodo, setEnderecosSegundoMetodo] = useState<
@@ -34,26 +34,26 @@ const Home = () => {
     },
   });
 
-  const handleSearch = (value: string) => {
-    setSearchEndereco(value);
+  const handlePesquisa = (value: string) => {
+    setPesquisaEndereco(value);
   };
 
   const enderecosFiltrados = enderecos.filter((endereco) => {
-    const searchLower = searchEndereco.toLowerCase();
+    const pesquisaLower = pesquisaEndereco.toLowerCase();
 
     return (
-      endereco.cep.toLowerCase().includes(searchLower) ||
-      endereco.cep.toLowerCase().includes(searchLower) ||
-      endereco.logradouro.toLowerCase().includes(searchLower) ||
-      endereco.bairro.toLowerCase().includes(searchLower) ||
-      endereco.cidade.toLowerCase().includes(searchLower) ||
-      endereco.uf.toLowerCase().includes(searchLower)
+      endereco.cep.toLowerCase().includes(pesquisaLower) ||
+      endereco.cep.toLowerCase().includes(pesquisaLower) ||
+      endereco.logradouro.toLowerCase().includes(pesquisaLower) ||
+      endereco.bairro.toLowerCase().includes(pesquisaLower) ||
+      endereco.cidade.toLowerCase().includes(pesquisaLower) ||
+      endereco.uf.toLowerCase().includes(pesquisaLower)
     );
   });
 
   const onSubmit = (data: TypeSchemaCep) => {
     const endereco: Iendereco = { ...data, id: uuidv4() };
-    saveEnderecos(endereco);
+    salvarEnderecos(endereco);
 
     //armazenando os endereços em um array com o segundo metodo de exemplo
     setEnderecosSegundoMetodo((prev) => [...prev, endereco]);
@@ -70,13 +70,13 @@ const Home = () => {
         <div className="flex w-1/2 items-center lg:w-1/2 2xl:w-1/3">
           <Input
             placeholder="Busque"
-            onChange={(e) => handleSearch(e.target.value)}
+            onChange={(e) => handlePesquisa(e.target.value)}
           />
           <Search className="relative right-9 opacity-30" />
         </div>
 
         <div>
-          <SheetAddNewAdress
+          <SheetAddNovoEndereco
             form={form}
             onSubmit={onSubmit}
             isSheetOpen={isSheetOpen}
@@ -85,7 +85,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="text-cinzaPrimary mt-8 space-y-4 rounded-lg bg-white px-5 py-8 shadow-md">
+      <section className="mt-8 space-y-4 rounded-lg bg-white px-5 py-8 text-cinzaPrimary shadow-md">
         <h1 className="text-center text-2xl font-bold">Tabela de endereços</h1>
         <DataTable data={enderecosFiltrados} columns={columns} />
       </section>

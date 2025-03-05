@@ -1,4 +1,4 @@
-import NavMobile from "../sideNav/navMobile";
+import NavMobile from "../navLateral/navMobile";
 
 const HeaderBar = () => {
   return (

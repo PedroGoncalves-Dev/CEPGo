@@ -33,9 +33,9 @@ const DropdownAcoes = ({ endereco }: IdropDownAcoesProps) => {
     toast.success("CEP copiado com sucesso!");
   };
 
-  const handleViewOnMap = () => {
+  const handleverNoMap = () => {
     window.open(
-      `https://maps.google.com/?q=${endereco.cep}`,
+      `https://maps.google.com/?q=${endereco.cep}, ${endereco.logradouro}, ${endereco.bairro}, ${endereco.cidade}, ${endereco.uf}`,
       "_blank",
       "noopener,noreferrer",
     );
@@ -78,7 +78,7 @@ const DropdownAcoes = ({ endereco }: IdropDownAcoesProps) => {
           </DialogTrigger>
           <DropdownMenuItem
             className="flex cursor-pointer flex-row items-center justify-between text-xs"
-            onClick={handleViewOnMap}
+            onClick={handleverNoMap}
           >
             Ver no mapa <MapPin />
           </DropdownMenuItem>

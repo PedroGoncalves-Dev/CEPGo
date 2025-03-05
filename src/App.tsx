@@ -1,7 +1,7 @@
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import "./App.css";
 import HeaderBar from "./components/headerBar/headerBar";
-import NavDesktop from "./components/sideNav/navDesktop";
+import NavDesktop from "./components/navLateral/navDesktop";
 import Home from "./pages/home";
 import { Toaster } from "@/components/ui/sonner";
 import Sobre from "./pages/sobre";
