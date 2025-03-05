@@ -23,6 +23,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEnderecoContext } from "@/hooks/useEnderecoContext";
+import { JSX } from "react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -44,6 +45,40 @@ export function DataTable<TData, TValue>({
       },
     },
   });
+
+  const NumerosPaginas = (): JSX.Element => {
+    const currentPage = table.getState().pagination.pageIndex;
+    const totalPages = table.getPageCount();
+    const pageOptions = table.getPageOptions();
+
+    let pagesToShow = [];
+
+    if (totalPages <= 3) {
+      pagesToShow = pageOptions;
+    } else if (currentPage <= 1) {
+      pagesToShow = [0, 1, 2];
+    } else if (currentPage >= totalPages - 2) {
+      pagesToShow = [totalPages - 3, totalPages - 2, totalPages - 1];
+    } else {
+      pagesToShow = [currentPage - 1, currentPage, currentPage + 1];
+    }
+
+    return (
+      <>
+        {pagesToShow.map((page) => (
+          <PaginationItem key={page}>
+            <PaginationLink
+              onClick={() => table.setPageIndex(page)}
+              isActive={currentPage === page}
+            >
+              {page + 1}
+            </PaginationLink>
+          </PaginationItem>
+        ))}
+      </>
+    );
+  };
+
   const { enderecos } = useEnderecoContext();
 
   return (
@@ -119,18 +154,10 @@ export function DataTable<TData, TValue>({
               Anterior
             </Button>
           </PaginationItem>
-          {table.getPageOptions().map((page) => (
-            <PaginationItem key={page}>
-              <PaginationLink
-                onClick={() => table.setPageIndex(page)}
-                isActive={table.getState().pagination.pageIndex === page}
-              >
-                {page + 1}
-              </PaginationLink>
-            </PaginationItem>
-          ))}
 
-          <PaginationItem>
+          <NumerosPaginas />
+
+          <PaginationItem className="">
             <Button
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
