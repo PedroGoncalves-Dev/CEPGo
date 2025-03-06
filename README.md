@@ -34,7 +34,7 @@ Siga os passos abaixo para configurar e rodar o projeto localmente:
 
 2. **Acesse o diretório do projeto:**:
    ```sh
-   cd CEPgo
+   cd CEPGo
 
 3. **Abra o Visual Studio Code e utilize o terminal integrado**:
    (atalho: Ctrl + ` no Windows/Linux ou Cmd + ` no macOS).
