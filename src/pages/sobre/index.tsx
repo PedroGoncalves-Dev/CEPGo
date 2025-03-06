@@ -18,7 +18,7 @@ const Sobre = () => {
               <h3 className="text-xl font-bold">Objetivo da aplicação</h3>
 
               <p className="text-cinzaPrimary text-sm leading-relaxed">
-                Objetico principal é cadastar endereços apenas por meio do CEP
+                Objetivo principal é cadastar endereços apenas por meio do CEP
                 digitado, o usuário pode cadastar o mesmo endereço quantas vezes
                 quiser, só que cada endereço tera o seu próprio ID.
               </p>
