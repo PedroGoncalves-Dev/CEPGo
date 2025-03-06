@@ -11,7 +11,6 @@ Objetivo principal é cadastar endereços apenas por meio do CEP digitado, o usu
 - **Vite**: Ferramenta de build rápida e otimizada para desenvolvimento com React.
 - **TypeScript**: Superset do JavaScript que adiciona tipagem estática, garantindo robustez e segurança.
 - **Tailwind CSS**: Framework utilitário para estilização que agiliza o desenvolvimento com classes pré-definidas.
-- **Node.js (>= v18)**: Ambiente de execução para JavaScript no backend.
 - **Axios**: Cliente HTTP para facilitar as requisições.
 - **TanStack Query (React Query)**: Gerenciamento de estado assíncrono para otimização de requisições e cache de dados.
 - **React Router DOM**: Biblioteca para roteamento e navegação em aplicações React.
